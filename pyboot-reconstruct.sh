@@ -1,7 +1,14 @@
 #!/bin/bash
 # Use for recreating pyboot3 packages directory
 # Nobody needs this except me :>
-PATHS=('3.10.7' '3.11.4' '3.7.17' '3.8.17' '3.9.17')
+# PATHS=('3.10.7' '3.11.4' '3.7.17' '3.8.17' '3.9.17')
+# NOTE: The bundled pip that comes with 3.12.1 no longer supports
+#       the --use-feature=no-binary-enable-wheel-cache option
+#       Currently, you must manually remove it from the line
+#       towards the bottom if you want to build for 3.12.x and
+#       (possibly) 3.11.x
+#
+# PATHS=('3.12.1')
 for path in ${PATHS[@]}; do
   export PATH="/opt/Python-$path/bin:$PATH"
 done
